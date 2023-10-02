@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Management</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <!-- <link rel="stylesheet" href="dashboard1_style.css"> -->
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Hostel Management</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Rooms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                         <div style="float: right; color: white; padding: 14px 20px;"> 
+                            <button class="btn btn-dark" id="parent-btn" type="menu">
+                                <%= name%>
+                            </button>
+                            <div class="child-btn" display="none">
+                                <button id="child-btn-1">Profile</button>
+                                <button id="child-btn-2">Log Out</button>
+                            </div> 
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="float: right; color: white; padding: 14px 20px;">
+        <button class="btn btn-dark" id="parent-btn" type="menu">
+            <%= name%>
+        </button>
+        <div class="child-btn" style="display: none;">
+            <button class="btn btn-dark" style="min-width: 100px; background-color: #007bff;" id="child-btn-1">Profile</button><br>
+            <button class="btn btn-dark" style="min-width: 100px; background-color: #007bff;" id="child-btn-2">Log Out</button>
+        </div>
+    </div>
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Welcome to Hostel Management</h1>
+            <p class="lead">We provide the best accommodation and services for your comfort.</p>
+            <a href="#" class="btn btn-primary btn-lg">Book a Room</a>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Comfortable Rooms</h4>
+                            <p class="card-text">Our rooms are designed to provide maximum comfort and privacy for our
+                                guests.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Security</h4>
+                            <p class="card-text">Our hostel is equipped with advanced security systems to ensure the
+                                safety of our guests.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">24/7 Services</h4>
+                            <p class="card-text">Our staff is available 24/7 to provide assistance and ensure a pleasant
+                                stay for our guests.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>About Us</h2>
+                    <p>We are a leading hostel management company that provides top-notch accommodation services to our
+                        guests. Our hostels are equipped with modern amenities and designed to provide maximum comfort
+                        and privacy. We have a team of dedicated staff who are available 24/7 to ensure a pleasant stay
+                        for our guests.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="img/about.jpg" class="img-fluid rounded-circle">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="py-5">
+        <div class="container">
+            <h2>Our Rooms</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="img/room1.jpg" class="card-img-top">
+                        <div class="card-body">
+                            <h4 class="card-title">Single Room</h4>
+                            <p class="card-text">A comfortable room for single occupancy.</p>
+                            <a href="#" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="img/room2.jpg" class="card-img-top">
+                        <div class="card-body">
+                            <h4 class="card-title">Double Room</h4>
+                            <p class="card-text">A spacious room for double occupancy.</p>
+                            <a href="#" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="img/room3.jpg" class="card-img-top">
+                        <div class="card-body">
+                            <h4 class="card-title">Triple Room</h4>
+                            <p class="card-text">A large room for triple occupancy.</p>
+                            <a href="#" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Contact Us</h4>
+                    <p><i class="fa fa-phone"></i> +1-123-456-7890</p>
+                    <p><i class="fa fa-envelope"></i> info@hostelmanagement.com</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>Connect With Us</h4>
+                    <a href="#" class="btn btn-outline-light"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-outline-light"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-outline-light"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>   
+</body>
+<script>
+    const parentBtn = document.getElementById('parent-btn');
+        const childBtn = document.querySelector('.child-btn');
+
+        parentBtn.addEventListener('mouseenter', () => {
+            childBtn.style.display = 'block';
+        });
+
+        parentBtn.addEventListener('mouseleave', () => {
+            childBtn.style.display = 'none';
+        });
+
+        childBtn.addEventListener('mouseenter', () => {
+            childBtn.style.display = 'block';
+        });
+
+        childBtn.addEventListener('mouseleave', () => {
+            childBtn.style.display = 'none';
+        });
+        const link = document.getElementsByClassName('nav-link');
+
+        link.addEventListener('click', function(event) {
+        event.preventDefault(); // prevent the default behavior of the anchor tag
+        window.location.href = link.getAttribute('href'); // redirect the user to the route
+        });
+</script>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="'utf-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/registration_style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Registration</h1>
+        <% if (locals.errorMessage) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= locals.errorMessage %>
+            </div>
+        <% } %>
+        <form action="/registration" method="POST">
+            <label for="fullName">Full Student Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <!-- <label for="middleName">Middle Name:</label>
+            <input type="text" id="middleName" name="middleName"> -->
+
+            <label for="guardianName">Guardian Full Name:</label>
+            <input type="text" id="guardianName" name="guardianName" required>
+
+            <label for="phoneNo">Phone No:</label>
+            <input type="tel" id="phoneNo" name="phoneNo" required>
+
+            <label for="guardianPhoneNo">Guardian Phone no.</label>
+            <input type="tel" id="guardianPhoneNo" name="guardianPhoneNo" required>
+
+            <label for="emailId">Email ID:</label>
+            <input type="email" id="emailId" name="emailId" required>
+
+            <label for="dob">DOB:</label>
+            <input type="date" id="dob" name="dob" required>
+            <br>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+
+            <label for="branch">Branch:</label>
+            <select id="branch" name="branch" required>
+                <option value="" selected disabled>Select a branch</option>
+                <option value="Computer Engineering">Computer Engineering</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Chemical Engineering">Chemical Engineering</option>
+                <option value="Information and Technology">Information and Technology</option>
+            </select>
+
+            <label for="rollNo">Roll NO:</label>
+            <input type="text" id="rollNo" name="rollNo" required>
+
+            <label for="semester">Semester:</label>
+            <input type="text" id="semester" name="semester" required>
+
+            <label for="meritRank">Merit Rank:</label>
+            <input type="text" id="meritRank" name="meritRank" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="distance">Distance:</label>
+            <input type="text" id="distance" name="distance" required>
+
+            <p style="color: black; display: inline-block; margin-right: 10px;">Disabled:</p>
+                                 <input type="radio" id="yes" name="disabled" value="yes" style="display: inline-block; margin-right: 5px; margin-left: 5px;">
+                                 <label for="admin" style="color: black; display: inline-block;">Yes</label>
+                                 <input type="radio" id="no" name="disabled" value="no" style="display: inline-block; margin-right: 5px; margin-left: 5px;" checked>
+                                 <label for="student" style="color: black; display: inline-block;">No</label><br>   
+<!-- 
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required> -->
+    <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+            <button class="btn btn-dark" id="submitted" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+<script>
+    // const button = document.getElementsById("submitted");
+
+    // button.addEventListener('click', function(event) {
+    // //event.preventDefault(); // prevent the default behavior of the button
+    // fetch('/login') // make a fetch request to the route that returns the EJS file
+    //     //.then(response => response.text()) // get the response as text
+    //     .then(html => document.getElementById('my-div').innerHTML = html); // add the rendered HTML to a div element on the page
+    // });
+</script>
+</html>

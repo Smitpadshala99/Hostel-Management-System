@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hostel Leave Management System</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        }
+
+        h1 {
+        text-align: center;
+        color: #333;
+        }
+
+        form {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        }
+
+        label {
+        display: block;
+        margin-bottom: 10px;
+        color: #666;
+        font-weight: bold;
+        }
+
+        input[type="date"], input[type="password"], textarea {
+        display: block;
+        width: 100%;
+        padding: -6px;
+        margin-bottom: 10p;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 18px;
+        color: #666;
+        }
+        input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+        background-color: #666;
+        }
+
+        h2 {
+        color: #333;
+        font-size: 24px;
+        margin-top: 40px;
+        }
+
+        #duration,
+        #reason-display {
+        font-weight: bold;
+        }
+
+    </style>
+  </head>
+  <body>
+    <h1>Leave Application Form</h1>
+    <form action="/leave" method="POST">
+        <label for="leave-date">Leave Date:</label>
+        <input type="date" id="leave-date" name="leave-date"><br>
+    
+        <label for="return-date">Return Date:</label>
+        <input type="date" id="return-date" name="return-date"><br>
+    
+        <input type="hidden" id="duration" name="duration" value=""><!-- added hidden input field -->
+    
+        <label for="reason">Reason for Leave:</label>
+        <textarea id="reason" name="reason" oninput="calculateDuration()"></textarea><br>
+    
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      function calculateDuration() {
+    const leaveDate = new Date(document.getElementById("leave-date").value);
+    const returnDate = new Date(document.getElementById("return-date").value);
+    const duration = Math.abs(returnDate - leaveDate) / (1000 * 60 * 60 * 24);
+    document.getElementById("duration").value = duration + " days"; // set the value of the hidden input field
+}
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hostel Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/dashboard_style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Hostel Management System</h1>
+    </div>
+
+    <div class="navbar">
+        <a class="active" href="#home">Home</a>
+        <a href="#attendance">Attendance</a>
+        <a href="#take-leave">Take Leave</a>
+        <a href="#change-password">Change Password</a>
+        <a href="#update-details">Update Details</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#logout">Logout</a>
+        <!-- <div style="float: right; color: white; padding: 14px 20px;">
+            <button class="btn btn-dark" id="parent-btn" type="menu"><%= name%></button>
+            <div class="child-btn" display="none">
+                <button id="child-btn-1">Profile</button>
+                <button id="child-btn-2">Log Out</button>
+            </div> -->
+        <!-- </div> -->
+        <div style="float: right; color: white; padding: 14px 20px;">
+            <button class="btn btn-dark" id="parent-btn" type="menu">
+                <%= name%>
+            </button>
+            <div class="child-btn" display="none">
+                <button id="child-btn-1">Profile</button>
+                <button id="child-btn-2">Log Out</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <!-- Your content goes here -->
+    </div>
+
+    <!-- ======= Contact Us Section ======= -->
+    <div class="container">
+        <section id="contact" class="contact section-bg">
+            <h2>Contact Us</h2>
+            <div class="info">
+                <div class="address">
+                    <p>PDEU Hostel Department<br>Gandhinagar, Gujarat</p>
+                </div>
+
+                <div class="email">
+                    <p>pdeuhostel@gmail.com</p>
+                </div>
+
+                <div class="phone">
+                    <p>+91 0000000000</p>
+                </div>
+            </div>
+
+            <form action="contact.ejs" method="post" role="form" class="email-form">
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group mt-3">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group mt-3">
+                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                </div>
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+        </section>
+    </div>
+
+    <!-- End Contact Us Section -->
+
+
+
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>PDEU Hostel Management System</span></strong>. All Rights Reserved
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.querySelector('.email-form');
+        const loading = document.querySelector('.loading');
+        const errorMessage = document.querySelector('.error-message');
+        const sentMessage = document.querySelector('.sent-message');
+        const parentBtn = document.getElementById('parent-btn');
+        const childBtn = document.querySelector('.child-btn');
+
+        parentBtn.addEventListener('mouseenter', () => {
+            childBtn.style.display = 'block';
+        });
+
+        parentBtn.addEventListener('mouseleave', () => {
+            childBtn.style.display = 'none';
+        });
+
+        childBtn.addEventListener('mouseenter', () => {
+            childBtn.style.display = 'block';
+        });
+
+        childBtn.addEventListener('mouseleave', () => {
+            childBtn.style.display = 'none';
+        });
+
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            loading.style.display = 'block';
+
+            const formData = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    loading.style.display = 'none';
+                    if (response.ok) {
+                        form.reset();
+                        sentMessage.style.display = 'block';
+                    } else {
+                        errorMessage.style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    loading.style.display = 'none';
+                    errorMessage.style.display = 'block';
+                });
+        });
+
+    </script>
+</body>
+
+</html>
