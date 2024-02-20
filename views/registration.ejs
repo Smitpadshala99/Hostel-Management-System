@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Registration</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+    <!-- Javascript files-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <!-- sidebar -->
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- for the bottom to top -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="css/registration_style.css">
+</head>
+
+<body>
+  <header>
+    <!-- header inner -->
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                    <div class="full">
+                        <div class="center-desk">
+                            <div class="logo">
+                                <a href="/"><img src="images/logo_h3.jpg" alt="#" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                    <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarsExample04">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/" >Home</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container_reg">
+        <h1>Registration</h1>
+        <% if (locals.errorMessage) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= locals.errorMessage %>
+            </div>
+        <% } %>
+        <form action="/registration" method="POST">
+            <label for="fullName">Full Student Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <!-- <label for="middleName">Middle Name:</label>
+            <input type="text" id="middleName" name="middleName"> -->
+
+            <label for="guardianName">Guardian Full Name:</label>
+            <input type="text" id="guardianName" name="guardianName" required>
+
+            <label for="phoneNo">Phone No:</label>
+            <input type="tel" id="phoneNo" name="phoneNo" required>
+
+            <label for="guardianPhoneNo">Guardian Phone no.</label>
+            <input type="tel" id="guardianPhoneNo" name="guardianPhoneNo" required>
+
+            <label for="emailId">Email ID:</label>
+            <input type="email" id="emailId" name="emailId" required>
+
+            <label for="dob">DOB:</label>
+            <input type="date" id="dob" name="dob" required>
+            <br>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+
+            <label for="branch">Branch:</label>
+            <select id="branch" name="branch" required>
+                <option value="" selected disabled>Select a branch</option>
+                <option value="Computer Engineering">Computer Engineering</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Chemical Engineering">Chemical Engineering</option>
+                <option value="Information and Technology">Information and Technology</option>
+            </select>
+
+            <label for="rollNo">Roll NO:</label>
+            <input type="text" id="rollNo" name="rollNo" required>
+
+            <label for="semester">Semester:</label>
+            <input type="text" id="semester" name="semester" required>
+
+            <label for="meritRank">Merit Rank:</label>
+            <input type="text" id="meritRank" name="meritRank" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="distance">Distance:</label>
+            <input type="text" id="distance" name="distance" required>
+            
+            <div style="display: inline-block;">
+              <p style="display: inline-block; margin-right: 10px;">Disabled:</p>
+              <label for="yes" style="display: inline-block;"><input type="radio" id="yes" name="disabled" value="yes">Yes</label>
+              <label for="no" style="display: inline-block;"><input type="radio" id="no" name="disabled" value="no" checked>No</label>
+            </div>
+            <br>
+            <label for="password" style="display: block;">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+            <button class="btn btn-dark" id="submitted" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+<script>
+    // const button = document.getElementsById("submitted");
+
+    // button.addEventListener('click', function(event) {
+    // //event.preventDefault(); // prevent the default behavior of the button
+    // fetch('/login') // make a fetch request to the route that returns the EJS file
+    //     //.then(response => response.text()) // get the response as text
+    //     .then(html => document.getElementById('my-div').innerHTML = html); // add the rendered HTML to a div element on the page
+    // });
+</script>
+</html>

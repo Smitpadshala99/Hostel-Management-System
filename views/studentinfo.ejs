@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Student Info</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+	<!-- Javascript files-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <!-- sidebar -->
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- for the bottom to top -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <style>
+      header {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          height: 70px;
+          padding: 0 20px;
+          background-color: #f2f2f2;
+      }
+
+      #username {
+          font-size: 20px;
+          font-weight: bold;
+          color: #ff0000;
+      }
+
+      table {
+          border-collapse: collapse;
+          width: 100%;
+          margin-left: 10px;
+          margin-right: 10px;
+          max-width: fit-content;
+          min-width: 1275px;
+      }
+
+      th,
+      td {
+          text-align: center;
+          padding: 10px;
+          border: 1px solid #ddd;
+      }
+
+      thead th {
+          background-color: #f2f2f2;
+      }
+
+      tbody tr:hover {
+          background-color: #f5f5f5;
+      }
+
+      button {
+          margin: 5px;
+      }
+
+      #submit-button {
+          display: block;
+          margin: 20px auto;
+          padding: 10px 20px;
+          background-color: #4CAF50;
+          color: #fff;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+      }
+
+      #submit-button:hover {
+          background-color: #3e8e41;
+      }
+  body {
+          /* background-image: url(images/gatehostel.jpg); */
+          /* background-attachment: fixed; */
+          background-color: aliceblue;
+      }
+
+  </style>
+
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- header -->
+    <header>
+        <!-- header inner -->
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo">
+                                    <a href="/"><img src="images/logo_h4.jpg" alt="#" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                        <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarsExample04">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="dashboard.ejs">DashBoard</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+		</header>
+    <br><div style="clear:both;"></div>
+    <input style="margin-left: 10px;" type="text" id="empId" onkeyup="searchByEmpId()" placeholder="Search by Roll No.">
+    <br><br>
+	<select style="margin-left: 10px;" onchange="showForm(this.value)">
+		<option value="">--Select an entity to update--</option>
+		<% for(var x=0 ; x<stu.length ; x++){%>
+		<option value="<%=stu[x].a%>"><%=stu[x].a%> - <%=stu[x].b%></option>
+		<% } %>
+	  </select>
+		<form method="POST" action="studentinfo">
+		<button type="submit" name="sort" value="roll">Sort by Roll No.</button>
+		<button type="submit" name="sort" value="room">Sort by Room No.</button>
+		</form>
+		
+	<table id="my-table">
+		<thead>
+		  <tr>
+			<th>No.</th>
+			<th>Roll No.</th>
+			<th>Student Name</th>
+			<th>Room No.</th>
+			<th>PhoneNo</th>
+			<th>DOB</th>
+			<th>EmailId</th>
+			<th>Remove Student</th>
+		  </tr>
+		</thead>
+		<tbody>
+		
+		  <% for(var x=0 ; x<stu.length ; x++){%>
+		  <tr>
+			<td><%= x %></td>
+			<td><%= stu[x].a %></td>
+			<td><%= stu[x].b %></td>
+			<td><%= stu[x].c %></td>
+			<td><%= stu[x].d %></td>
+			<td><%= stu[x].e %></td>
+			<td><%= stu[x].f %></td>
+			<form action="/studentinfo/delete" method="POST">
+			<td><input type="hidden" name="rollno1" value="<%=stu[x].a%>"><button type="submit">remove</button></td>
+			</form>
+		  </tr>
+		  <tr id="form-row-<%=stu[x].a%>" style="display: none;">
+			<td colspan="7">
+			  <form method="POST" action="/studentinfo/update">
+				<label for="name">Name:</label>
+				<input type="text" name="name" id="name" value="<%=stu[x].b%>"><br><br>
+				<label for="phoneno">Phone No.:</label>
+				<input type="text" name="phoneno" id="phoneno" value="<%=stu[x].d%>"><br><br>
+				<label for="dob">DOB:</label>
+				<input type="date" name="dob" id="dob" value="<%=stu[x].e%>"><br><br>
+				<input type="hidden" name="rollno" value="<%=stu[x].a%>">
+				<input type="submit" value="Update">
+			  </form>
+			</td>
+		  </tr>
+		  <% } %>
+		  
+		</tbody>
+		<%= stu=[] %>
+	  </table>	  
+
+    <div class="scroll-top-wrapper ">
+        <span class="scroll-top-inner">
+            <i class="fa fa-2x fa-arrow-circle-up"></i>
+        </span>
+    </div>
+    </body>
+
+</html>
+
+
+<script>
+	
+function showForm(selectedValue) {
+  var formRows = document.querySelectorAll("tr[id^='form-row-']");
+  for (var i = 0; i < formRows.length; i++) {
+    formRows[i].style.display = "none";
+  }
+  if (selectedValue) {
+    var formRow = document.querySelector("#form-row-" + selectedValue);
+    if (formRow) {
+      formRow.style.display = "table-row";
+    }
+  }
+}
+function searchByRollNo() {
+  // Get input value
+  var input = document.getElementById("rollNoSearch");
+  var filter = input.value.toUpperCase();
+
+  // Get table rows
+  var table = document.getElementsByTagName("table")[0];
+  var rows = table.getElementsByTagName("tr");
+
+  // Loop through rows and hide those that do not match search query
+  for (var i = 0; i < rows.length; i++) {
+    var rollNo = rows[i].getElementsByTagName("td")[1];
+    if (rollNo) {
+      var text = rollNo.textContent || rollNo.innerText;
+      if (text.toUpperCase().indexOf(filter) > -1) {
+        rows[i].style.display = "";
+      } else {
+        rows[i].style.display = "none";
+      }
+    }
+  }
+}
+// function refresh(){
+// // get a reference to the table element
+// const table = document.getElementById('my-table');
+
+// // remove all rows except the header
+// while (table.rows.length > 1) {
+//   table.deleteRow(1);
+// }
+// }
+
+    $(function () {
+
+        $(document).on('scroll', function () {
+
+            if ($(window).scrollTop() > 100) {
+                $('.scroll-top-wrapper').addClass('show');
+            } else {
+                $('.scroll-top-wrapper').removeClass('show');
+            }
+        });
+
+        $('.scroll-top-wrapper').on('click', scrollToTop);
+    });
+
+    function scrollToTop() {
+        verticalOffset = typeof (verticalOffset) != 'undefined' ? verticalOffset : 0;
+        element = $('body');
+        offset = element.offset();
+        offsetTop = offset.top;
+        $('html, body').animate({ scrollTop: offsetTop }, 500, 'linear');
+    }
+    
+</script>

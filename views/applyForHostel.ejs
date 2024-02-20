@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hostel Application Form</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		label {
+			display: block;
+			margin-bottom: 5px;
+		}
+		input, textarea {
+			display: block;
+			margin-bottom: 10px;
+			width: 100%;
+			padding: 5px;
+		}
+		button {
+			display: block;
+			margin: 20px auto 0;
+			padding: 10px 20px;
+			font-size: 16px;
+			background-color: #008CBA;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.confirmation {
+			/* display: none; */
+			margin-bottom: 20px;
+		}
+		.message-box {
+			display: none;
+			padding: 20px;
+			background-color: #f0f0f0;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			text-align: center;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Hostel Application Form</h1>
+	<form action="/applyForHostel" method="POST" id="hostel-form">
+
+		<label for="roll-no">Roll NO:</label>
+		<input type="text" id="roll-no" name="roll_no" required>
+		<label for="merit-rank">Merit Rank:</label>
+		<input type="text" id="merit-rank" name="merit_rank" required>
+
+        <label for="room-type">Room Type:</label>
+		<select id="room-type" name="room_type" required>
+			<option value="">Select Room Type</option>
+			<option value="2-bed">2 Bed</option>
+			<option value="3-bed">3 Bed</option>
+		</select>
+
+		<label for="hostel-block">Hostel Block:</label>
+		<select id="hostel-block" name="hostel-block" required>
+			<option value="">Select Hostel Block</option>
+			<option value="A">A</option>
+			<option value="B">B</option>
+		</select>
+
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required>
+
+		<div class="confirmation">
+			<p>Please confirm that you have read and agree to our terms and conditions:</p>
+			<p>Please note that by submitting this application, you agree to follow our terms and conditions, which include:</p>
+			<ul>
+				<li>Respecting the rights and privacy of your fellow residents</li>
+				<li>Maintaining a clean and tidy living environment</li>
+				<li>Adhering to the hostel's policies and regulations</li>
+			</ul>
+            <label>
+				<input type="checkbox" id="agree-checkbox" required>
+				I agree to the terms and conditions.
+			</label>
+			<button id="confirm-btn">Confirm</button>
+		</div>
+		<div class="message-box">
+			<p>Thank you for applying for our hostel. We have received your application and will review it shortly.</p>
+		</div>
+	</form>
+</body>
+</html>

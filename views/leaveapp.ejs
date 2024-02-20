@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Hostel Management System</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+        <style>
+            body{
+                /* background-image: url(images/gatehostel.jpg); */
+                /* background-attachment: fixed; */
+                background-color: aliceblue;
+            }
+        </style>
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- header -->
+    <header>
+        <!-- header inner -->
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo">
+                                    <a href="/"><img src="images/logo_h4.jpg" alt="#" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                        <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarsExample04">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="admindashboard.html">DashBoard</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- banner -->
+        <div class="allocate_room">
+           <div class="container"><br>
+            <h2>Leave Application</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Name</th>
+              <th>Leave Date</th>
+              <th>Return Date</th>
+              <th>Duration</th>
+              <th>Reason</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (var i = 0; i < leaveData.length; i++) { %>
+              <tr>
+                <td><%= leaveData[i].id %></td>
+                <td><%= leaveData[i].email %></td>
+                <td><%= leaveData[i].leaveDate.toDateString() %></td>
+                <td><%= leaveData[i].returnDate.toDateString() %></td>
+                <td><%= leaveData[i].duration %></td>
+                <td><%= leaveData[i].reason %></td>
+                <td>
+                  <% if (leaveData[i].status != "approved") { %>
+                    <form method="POST" action="/leaveapp">
+                      <input type="hidden" name="id" value="<%= leaveData[i].id %>">
+                      <button type="submit">Approve</button>
+                    </form>
+                  <% } else { %>
+                    <%= leaveData[i].status %>
+                  <% } %>
+                </td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>             
+           </div>
+        </div>
+     </section>
+     <!-- end banner -->
+     
+    <div class="scroll-top-wrapper ">
+        <span class="scroll-top-inner">
+            <i class="fa fa-2x fa-arrow-circle-up"></i>
+        </span>
+    </div>
+    <!-- Javascript files-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <!-- sidebar -->
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- for the bottom to top -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <style>
+        header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 70px;
+        padding: 0 20px;
+        background-color: #f2f2f2;
+        }
+
+        #username {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        }
+
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px 0;
+        }
+
+        th, td {
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ddd;
+        }
+
+        thead th {
+        background-color: #f2f2f2;
+        }
+
+        tbody tr:hover {
+        background-color: #f5f5f5;
+        }
+
+        #submit-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        }
+
+        #submit-button:hover {
+        background-color: #3e8e41;
+        }
+	</style>
+</body>
+
+</html>
+
+
+<script>
+
+    $(function () {
+
+        $(document).on('scroll', function () {
+
+            if ($(window).scrollTop() > 100) {
+                $('.scroll-top-wrapper').addClass('show');
+            } else {
+                $('.scroll-top-wrapper').removeClass('show');
+            }
+        });
+
+        $('.scroll-top-wrapper').on('click', scrollToTop);
+    });
+
+    function scrollToTop() {
+        verticalOffset = typeof (verticalOffset) != 'undefined' ? verticalOffset : 0;
+        element = $('body');
+        offset = element.offset();
+        offsetTop = offset.top;
+        $('html, body').animate({ scrollTop: offsetTop }, 500, 'linear');
+    }
+
+
+</script>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Management</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        /* .navbar navbar-expand-lg navbar-light bg-light {
+            position: fixed;
+            top: 0;
+        } */
+
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #eeeeee;
+            text-align: center;
+            padding: 15px 18px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .display-4 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-top: 100px;
+        }
+
+        .jumbotron {
+            padding: 2rem 1rem;
+            background-color: #e9efe9;
+            background-image: url(imgs/hostel.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 0.3rem;
+            height: 801px;
+            width: 1200px;
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: rgb(0 0 0);
+        }
+
+        .navbar-brand {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bg-light {
+            background-color: #e5a70e !important;
+        }
+
+        .navbar-brand img {
+            height: 60px;
+            width: 100px;
+            border: 1px solid black;
+        }
+
+        .card-body .img_features img {
+            width: 150px;
+            height: 150px;
+            margin-left: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="imgs/logo.jpeg" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jumbotron -->
+    <center>
+        <div class="jumbotron jumbotron-fluid">
+            <h1 class="display-4">Welcome to Hostel Management</h1>
+            <p class="lead">We provide the best accommodation and services for your comfort.</p>
+            <a href="/registration" class="btn btn-primary btn-lg">Register</a>
+            <a href="/login" class="btn btn-primary btn-lg">Login</a>
+        </div>
+    </center>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Comfortable Rooms</h4>
+                            <p class="card-text">Our rooms are designed to provide maximum comfort and privacy for our
+                                guests.</p>
+                            <div class="img_features">
+                                <img src="imgs/room.jpg" alt="room">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Security</h4>
+                            <p class="card-text">Our hostel is equipped with advanced security systems to ensure the
+                                safety of our guests.</p>
+                            <div class="img_features">
+                                <img src="imgs/hostel-security.jpg" alt="security">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">24/7 Services</h4>
+                            <p class="card-text">Our staff is available 24/7 to provide assistance and ensure a pleasant
+                                stay for our guests.</p>
+                            <div class="img_features">
+                                <img src="imgs/staff.jpg" alt="staff">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>About Us</h2>
+                    <br>
+                    <p>We are hostel management company that provides top-notch accommodation services to the
+                        students. Our hostels are well equipped with modern amenities and designed to provide maximum
+                        comfort and privacy. We have a team of dedicated staff who are available 24/7 to ensure a
+                        pleasant stay for the students.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="py-5">
+        <div class="container">
+            <h2>Our Rooms</h2>
+            <br><br>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <!-- <img src="img/room2.jpg" class="card-img-top"> -->
+                        <div class="card-body">
+                            <h4 class="card-title">Double Room</h4>
+                            <p class="card-text">A spacious room for double occupancy.</p>
+                            <a href="/applyForHostel" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <!-- <img src="img/room3.jpg" class="card-img-top"> -->
+                        <div class="card-body">
+                            <h4 class="card-title">Triple Room</h4>
+                            <p class="card-text">A large room for triple occupancy.</p>
+                            <a href="/applyForHostel" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Contact Us</h4>
+                    <p><i class="fa fa-phone"></i> +1-123-456-7890</p>
+                    <p><i class="fa fa-envelope"></i> info@hostelmanagement.com</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>Connect With Us</h4>
+                    <a href="#" class="btn btn-outline-light"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-outline-light"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-outline-light"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>

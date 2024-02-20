@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Employee</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+	<!-- Javascript files-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <!-- sidebar -->
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- for the bottom to top -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <style>
+        header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 70px;
+            padding: 0 20px;
+            background-color: #f2f2f2;
+        }
+
+        #username {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff0000;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-left: 10px;
+            margin-right: 10px;
+            max-width: fit-content;
+            min-width: 1275px;
+        }
+
+        th,
+        td {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        thead th {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        button {
+            margin: 5px;
+        }
+
+        input[type="text"] {
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            padding: 5px;
+            font-size: 14px;
+            width: auto;
+        }
+
+        input[type="text"]:focus {
+            border-color: #ff0000;
+            outline: none;
+        }
+
+        #submit-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #submit-button:hover {
+            background-color: #3e8e41;
+        }
+		body {
+            /* background-image: url(images/gatehostel.jpg); */
+            /* background-attachment: fixed; */
+            background-color: aliceblue;
+        }
+
+    </style>
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- header -->
+    <header>
+        <!-- header inner -->
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo">
+                                    <a href="/"><img src="images/logo_h4.jpg" alt="#" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                        <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarsExample04">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="dashboard.ejs">DashBoard</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+		</header>
+    <br><div style="display: flex; margin: 5px;">
+	<input style="margin-left: 10px; font-size: 16px;" type="text" id="empId" onkeyup="searchByEmpId()" placeholder="Search by EMP ID">
+    <form action="/employee/sort_by_employeeid" method="post"><button type="submit">Sort by Employee Id</button></form>
+	<form action="/employee/sort_by_salary" method="post"> <button type="submit">Sort by Salary</button></form>
+    </div>
+    <table>
+		<thead>
+			<tr>
+				<th>Emp_Id</th>
+				<th>E_Name</th>
+				<th>Address</th>
+				<th>Salary</th>
+				<th>Role</th>
+				<th>Email</th>
+				<th>Hostel_Name</th>
+			</tr>
+		</thead>
+		<tbody>
+		<form action = "/attandance" method = "POST">
+			<% for(var x=0 ; x<stud.length ; x++){%>
+			<tr>
+				<td><%= stud[x].a %></td>
+				<td><%= stud[x].b %></td>
+				<td><%= stud[x].c %></td>
+				<td><%= stud[x].d %></td>
+				<td><%= stud[x].e %></td>
+				<td><%= stud[x].f %></td>
+				<td><%= stud[x].g %></td>
+			
+			</tr>
+			<% } %>
+		</form>
+		</tbody>
+	</table><br>
+    <form action="/employee" method="post" style="display: inline-block; width: auto; margin-left: 10px; ">
+        <input id="one" type="text" name="one" style="width: 80px;" placeholder="Emp_Id">
+        <input id="two" type="text" name="two" style="width: 100px;" placeholder="E_Name">
+        <input id="three" type="text" name="three" style="width: 525px;" placeholder="Address">
+        <input id="four" type="text" name="four" style="width: 100px" placeholder="Salary">
+        <input id="five" type="text" name="five" style="width: 80px;" placeholder="Role">
+        <input id="six" type="text" name="six" style="width: 200px;" placeholder="Email">
+        <input id="seven" type="text" name="seven" style="width: 120px;" placeholder="Hostel_Name">
+        <button id="kgf" type="submit">Update</button>
+    </form>
+	<form action="/employee/deletebyEmpId" method="post">
+		<input type="text" id="eight" name="eight" style="margin-left: 10px;" placeholder="Emp_Id">
+		<button id="rocky" type="submit">Delete</button>
+	</form>
+
+    <div class="scroll-top-wrapper ">
+        <span class="scroll-top-inner">
+            <i class="fa fa-2x fa-arrow-circle-up"></i>
+        </span>
+    </div>
+    </body>
+
+</html>
+
+
+<script>
+        function sortTable() {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementsByTagName("table")[0];
+            switching = true;
+            while (switching) {
+            switching = false;
+            rows = table.rows;
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("td")[0];
+                y = rows[i + 1].getElementsByTagName("td")[0];
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+                }
+            }
+      if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
+    }
+  }
+  
+  function sortTableBySalary() {
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementsByTagName("table")[0];
+    switching = true;
+    while (switching) {
+      switching = false;
+      rows = table.rows;
+      for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName("td")[2];
+        y = rows[i + 1].getElementsByTagName("td")[2];
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+      if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
+    }
+  }
+  function searchByEmpId() {
+  // Get input value
+  var input = document.getElementById("empId");
+  var filter = input.value.toUpperCase();
+
+  // Get table rows
+  var table = document.getElementsByTagName("table")[0];
+  var rows = table.getElementsByTagName("tr");
+
+  // Loop through rows and hide those that do not match search query
+  for (var i = 0; i < rows.length; i++) {
+    var empId = rows[i].getElementsByTagName("td")[0];
+    if (empId) {
+      var text = empId.textContent || empId.innerText;
+      if (text.toUpperCase().indexOf(filter) > -1) {
+        rows[i].style.display = "";
+      } else {
+        rows[i].style.display = "none";
+      }
+    }
+  }
+}
+    $(function () {
+
+        $(document).on('scroll', function () {
+
+            if ($(window).scrollTop() > 100) {
+                $('.scroll-top-wrapper').addClass('show');
+            } else {
+                $('.scroll-top-wrapper').removeClass('show');
+            }
+        });
+
+        $('.scroll-top-wrapper').on('click', scrollToTop);
+    });
+
+    function scrollToTop() {
+        verticalOffset = typeof (verticalOffset) != 'undefined' ? verticalOffset : 0;
+        element = $('body');
+        offset = element.offset();
+        offsetTop = offset.top;
+        $('html, body').animate({ scrollTop: offsetTop }, 500, 'linear');
+    }
+</script>

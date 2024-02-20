@@ -1,0 +1,75 @@
+
+      /* Set global font family */
+      body {
+        font-family: Arial, sans-serif;
+      }
+      
+      /* Style the container */
+      .container_reg {
+        margin: 0 auto;
+        max-width: 600px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      
+      /* Style the headings */
+      h1 {
+        margin-top: 0;
+      }
+      
+      /* Style the form elements */
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="password"],
+      select {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+      
+      /* Style the select options */
+      select option {
+        color: #333;
+      }
+      
+      /* Style the radio buttons */
+      input[type="radio"] {
+        margin-right: 5px;
+      }
+      
+      /* Style the submit button */
+      button[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      button[type="submit"]:hover {
+        background-color: #ff000096;
+      }
+      
+      /* Style the error message */
+      .alert-danger {
+        color: #ff0000;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+      

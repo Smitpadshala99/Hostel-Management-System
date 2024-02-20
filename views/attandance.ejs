@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Attendance</title>
+    <style>
+        /* Styling for header */
+		header {
+		background-color: #333;
+		color: #fff;
+		padding: 20px;
+		}
+
+		header h1 {
+		margin: 0;
+		}
+
+		/* Styling for date picker */
+		label {
+		color: #0b0b0b;
+		margin-right: 10px;
+		}
+
+		input[type="date"] {
+		padding: 5px;
+		border-radius: 5px;
+		border: none;
+		}
+		
+		/* Styling for table */
+		table {
+		border-collapse: collapse;
+		width: 100%;
+		}
+
+		th, td {
+		text-align: left;
+		padding: 8px;
+		border-bottom: 1px solid #ddd;
+		}
+
+		th {
+		background-color: #333;
+		color: #fff;
+		}
+
+		/* Styling for radio buttons */
+		
+		/* input[type="radio"][value="present"] {
+			--radio-color: green;
+		}
+
+		input[type="radio"][value="absent"] {
+			--radio-color: red;
+		}
+
+		input[type="radio"][value="leave"] {
+			--radio-color: yellow;
+		} */
+		input[type="radio"] {
+		/* margin-right: 5px; */
+		height: 40px;
+		width: 40px;
+		}
+		#specifyColorr {
+            accent-color: red;
+        }
+		#specifyColorg {
+            accent-color: rgb(120, 223, 120);
+        }
+		#specifyColory {
+            accent-color: rgb(222, 239, 154);
+        }
+
+		/* Styling for rows */
+		tr:nth-child(even) {
+		background-color: #f2f2f2;
+		}
+
+		/* Styling for hover effect */
+		tr:hover {
+		background-color: #ddd;
+		}
+
+		/* Styling for font color */
+		body {
+		color: #333;
+		}
+    </style>
+</head>
+<body>
+<header>
+    <h1 style="text-align: center;">Hostel Management System</h1>
+    <div style="float:right;">
+        <p>Username: smit</p>
+        <!-- Add date picker for admin to choose date -->
+        
+        
+    </div>
+    <div style="clear:both;"></div>
+</header><br><br>
+	<table>
+		<thead>
+			<tr>
+				<th>No.</th>
+				<th>Roll No.</th>
+				<th>Student Name</th>
+				<th>Room No.</th>
+				<th>Present</th>
+				<th>Absent</th>
+				<th>Leave</th>
+			</tr>
+		</thead>
+		<tbody>
+		<form action = "/attandance" method = "POST">
+			<% for(var x=0 ; x<stu.length ; x++){%>
+			<tr>
+				<td><%= x %></td>
+				<td><%= stu[x].a %></td>
+				<td><%= stu[x].b %></td>
+				<td><%= stu[x].c %></td>
+				<td><input type="radio" id="specifyColorg" name="attendance-<%= x+1 %>" value="present"></td>
+				<td><input type="radio" id="specifyColorr" name="attendance-<%= x+1 %>" value="absent"></td>
+				<td><input type="radio" id="specifyColory" name="attendance-<%= x+1 %>" value="leave"></td>
+			
+			</tr>
+			<% } %>
+			<label for="attendance_date">Date:</label>
+			<input type="date" id="attendance_date" name="attendance_date">
+			<button type="submit">submit</button>
+		</form>
+			<!-- add more rows as needed -->
+		</tbody>
+	</table>
+</body>
+</html>
